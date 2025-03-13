@@ -6,21 +6,42 @@ For guidance on setting up and submitting this assignment, refer to the Marcy la
 
 Imagine you are giving a brief lesson on Recursion to a relatively new programmer. In your lesson make sure to include the following:
 
-* A formal definition of recursion (feel free to quote an official source like MDN)
-* An example in code.
-* An explanation of the code example.
-* An explanation of the kinds of functions that are best solved using recursion.
+- A formal definition of recursion (feel free to quote an official source like MDN)
+- An example in code.
+- An explanation of the code example.
+- An explanation of the kinds of functions that are best solved using recursion.
 
 ### Response 1
+
+Recursion is one of the most confusing concepts to wrap your head around when it comes to algorithms, so let's go over a simple way to understand it.
+
+Essentially, recursion is the concept of calling a function within itself to work through an iteration until a condition is met. The condition we are aiming for is called a **base case**. It is essentially a more **efficient** way to do the same task over and over again as opposed to iteration.
+
+Recursion is best used when a problem can be broken down into smaller versions of the **same problem/action**. For example:
+
+```js
+const factorial = (n) => {
+  if (n === 0) {
+    // base case
+    return 1;
+  }
+  return n * factorial(n - 1);
+};
+
+console.log(factorial(5)); // 120
+```
+
+In this code block, we **recursively** call every number lower than our input until we get to 0, which is when our function would no longer work and start working up the chain again until we ultimately call **factorial(5)**.
+:::
 
 ## Prompt 2
 
 Imagine you are giving a brief lesson on the Tree data structure to a relatively new programmer. In your lesson make sure to include the following:
 
-* A formal definition of a Tree (feel free to quote an official source like MDN)
-* Definitions for key terms like **root**, **leaf**, **depth**, and **height** as they relate to Trees
-* An example in code.
-* An explanation of the code example.
+- A formal definition of a Tree (feel free to quote an official source like MDN)
+- Definitions for key terms like **root**, **leaf**, **depth**, and **height** as they relate to Trees
+- An example in code.
+- An explanation of the code example.
 
 ### Response 2
 
@@ -30,17 +51,17 @@ Any iterative function can be written recursively. Provide an example of an iter
 
 ### Response 3
 
- > An example of a Iterative Function
+> An example of a Iterative Function
 
 ```js
-    function Iterative(n) {
-        let result = 1;
+function Iterative(n) {
+  let result = 1;
 
-        for (let i = 1; i <= n; i++) {
-        result *= i;
-    }
-        return result;
-    }
+  for (let i = 1; i <= n; i++) {
+    result *= i;
+  }
+  return result;
+}
 ```
 
 > An example of a Recursive Function
@@ -55,30 +76,37 @@ function Recursive(n) {
 }
 ```
 
-### Pros & Cons for a Iterative approach 
+### Pros & Cons for a Iterative approach
+
 #### Pros:
+
 - Better for performance and memory usage.
 
 - Safer for large inputs. No risk of exceeding call stack size.
 
 - Often preferred in production code for efficiency.
 
-  #### Cons: 
+  #### Cons:
+
 - Can be less elegant, especially for problems like recursion-based algorithms like tree traversal and backtracking.
 
 ### Pros & Cons for a Recursive approach
+
 #### Pros
-  - Cleaner and more readable, especially for problems that are naturally recursive.
 
-  - Great for divide-and-conquer, tree/graph traversal, etc.
-#### Cons 
-  - Call stack grows with each function call—JavaScript has limited stack size, so doing something like Recursive(100000) will crash.
+- Cleaner and more readable, especially for problems that are naturally recursive.
 
-  - Slight performance hit due to function call overhead.
+- Great for divide-and-conquer, tree/graph traversal, etc.
+
+#### Cons
+
+- Call stack grows with each function call—JavaScript has limited stack size, so doing something like Recursive(100000) will crash.
+
+- Slight performance hit due to function call overhead.
 
 ## Prompt 4
 
-Depth-first-search is an algorithm of traversing through a tree that explores as far as possible along a single branch before backtracking and exploring other branches. The three approaches for depth-first-search are "inorder", "preorder", and "postorder". 
+Depth-first-search is an algorithm of traversing through a tree that explores as far as possible along a single branch before backtracking and exploring other branches. The three approaches for depth-first-search are "inorder", "preorder", and "postorder".
 
 Using this tree as an example, explain the differences between these three approaches, providing implementations of each (recursive or iterative, its up to you but one of them is definitely cleaner).
 
@@ -93,15 +121,15 @@ D   E   F
 ### Response 4
 
 #### Inorder Traversal
-* Inorder Traversal (Left → Root → Right)
-* Traverse the left subtree first, then visit the current node, then the right subtree.
-* In binary search trees, this gives nodes in sorted order.
-* Traveral order: D B E A C F
 
->Implementation of Inorder Traversal
+- Inorder Traversal (Left → Root → Right)
+- Traverse the left subtree first, then visit the current node, then the right subtree.
+- In binary search trees, this gives nodes in sorted order.
+- Traveral order: D B E A C F
+
+> Implementation of Inorder Traversal
 
 ```js
-
 function inorder(node) {
   if (node) {
     inorder(node.left);
@@ -112,15 +140,15 @@ function inorder(node) {
 ```
 
 #### Preorder Traversal
-* Preorder Traversal (Root → Left → Right)
-* Visit the current node first, then traverse the left subtree, and finally the right subtree.
-* A comparison I came saw that I liked was "Deal with current first, then children."
-* Traversal Order: A B D E C F
 
->Implemetation of Preorder Traversal 
+- Preorder Traversal (Root → Left → Right)
+- Visit the current node first, then traverse the left subtree, and finally the right subtree.
+- A comparison I came saw that I liked was "Deal with current first, then children."
+- Traversal Order: A B D E C F
 
-```js 
+> Implemetation of Preorder Traversal
 
+```js
 function preorder(node) {
   if (node) {
     console.log(node.val);
@@ -131,16 +159,15 @@ function preorder(node) {
 ```
 
 ### Postorder Traveral
-* Postorder Traversal (Left → Right → Root)
-* Traverse the left subtree first, then the right subtree, and finally visit the current node.
-* Useful for operations where you need to deal with child nodes before the parent (e.g., deleting tree nodes).
-* Traversal Order: D E B F C A
 
+- Postorder Traversal (Left → Right → Root)
+- Traverse the left subtree first, then the right subtree, and finally visit the current node.
+- Useful for operations where you need to deal with child nodes before the parent (e.g., deleting tree nodes).
+- Traversal Order: D E B F C A
 
->Implementation of Postorder raversal 
+> Implementation of Postorder raversal
 
-```js 
-
+```js
 function postorder(node) {
   if (node) {
     postorder(node.left);
