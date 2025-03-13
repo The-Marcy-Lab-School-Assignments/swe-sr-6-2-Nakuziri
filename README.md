@@ -15,7 +15,9 @@ Imagine you are giving a brief lesson on Recursion to a relatively new programme
 
 Recursion is one of the most confusing concepts to wrap your head around when it comes to algorithms, so let's go over a simple way to understand it.
 
-Essentially, recursion is the concept of calling a function within itself to work through an iteration until a condition is met. The condition we are aiming for is called a **base case**. It is essentially a more **efficient** way to do the same task over and over again as opposed to iteration.
+**Recursion:** The act of a function calling itself, recursion is used to solve problems that contain smaller sub-problems. A recursive function can receive two inputs: a base case (ends recursion) or a recursive case (resumes recursion).
+
+**Essentially**, recursion is the concept of calling a function within itself to work through an iteration until a condition is met. The condition we are aiming for is called a **base case**. It is essentially a more **efficient** way to do the same task over and over again as opposed to iteration.
 
 Recursion is best used when a problem can be broken down into smaller versions of the **same problem/action**. For example:
 
