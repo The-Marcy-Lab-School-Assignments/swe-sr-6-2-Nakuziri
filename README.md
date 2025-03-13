@@ -47,6 +47,47 @@ Imagine you are giving a brief lesson on the Tree data structure to a relatively
 
 ### Response 2
 
+"A tree is a data structure composed of nodes, commonly used to represent hierarchical relationships. Each tree has a root node, and each node may have Leaf nodes." - **MDN**
+
+A tree is **non-linear** meaning the nodes do not link one right after the other. Instead, each one branches out, spreads, and may have children nodes of their own.
+
+**Root:** The top/first node in a tree (the starting point)
+**Leaf:** A node that has no children (the end of a branch)
+**Depth:** The number of edges from the root to a given node
+**Height:** The number of edges in the longest path from the root to a leaf
+
+```js
+class Tree {
+  constructor(value) {
+    this.value = value;
+    this.leaves = [];
+  }
+
+  addLeaf(leaf) {
+    this.leaves.push(new Tree(leaf));
+  }
+}
+
+// Creating a tree
+const root = new Tree("A");
+root.addLeaf("B");
+root.addLeaf("C");
+root.leaves[0].addLeaf("E");
+root.leaves[0].addLeaf("D");
+root.leaves[1].addLeaf("F");
+
+console.log(root);
+```
+
+In this code block, we first define our tree class, which will take in a value that will be referred to as our root. We added a method that allows leaves to be added to our tree. At the bottom of the code block, we actively create a tree and add leaves to it using this class and method. Below is what our tree structure will look like after all of these steps are taken. You can see multiple leaves and multiple branches.
+
+      A
+     / \
+    B   C
+
+/ \ \
+ D E F
+
 ## Prompt 3
 
 Any iterative function can be written recursively. Provide an example of an iterative function and the same function written recursively. Then, explain the benefits and/or drawbacks of each approach.
@@ -145,7 +186,7 @@ function inorder(node) {
 
 - Preorder Traversal (Root → Left → Right)
 - Visit the current node first, then traverse the left subtree, and finally the right subtree.
-- A comparison I came saw that I liked was "Deal with current first, then children."
+- A comparison I came saw that I liked was "Deal with current first, then Leafren."
 - Traversal Order: A B D E C F
 
 > Implemetation of Preorder Traversal
@@ -164,7 +205,7 @@ function preorder(node) {
 
 - Postorder Traversal (Left → Right → Root)
 - Traverse the left subtree first, then the right subtree, and finally visit the current node.
-- Useful for operations where you need to deal with child nodes before the parent (e.g., deleting tree nodes).
+- Useful for operations where you need to deal with Leaf nodes before the parent (e.g., deleting tree nodes).
 - Traversal Order: D E B F C A
 
 > Implementation of Postorder raversal
